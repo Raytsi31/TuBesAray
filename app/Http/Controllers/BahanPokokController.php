@@ -39,10 +39,10 @@ class BahanPokokController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required|max:255',
-            'sumber' => 'required|alpha_num',
-            'stok' => 'required|numeric',
-            'harga' => 'required|numeric',
+            'nama' => 'required',
+            'sumber' => 'required',
+            'stok' => 'required',
+            'harga' => 'required',
         ]);
         $bahanpokoks = BahanPokok::create($validatedData);
    
@@ -83,10 +83,10 @@ class BahanPokokController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'nama' => 'required|max:255',
-            'sumber' => 'required|alpha_num',
-            'stok   ' => 'required|numeric',
-            'harga' => 'required|numeric',
+            'nama' => 'required',
+            'sumber' => 'required',
+            'stok' => 'required',
+            'harga' => 'required',
         ]);
         BahanPokok::whereId($id)->update($validatedData);
 
@@ -104,6 +104,6 @@ class BahanPokokController extends Controller
         $bahanpokoks = BahanPokok::findOrFail($id);
         $bahanpokoks->delete();
 
-        return redirect('/bahanpokoks')->with('success', 'Data is successfully deleted');
+        return redirect('/bahanpokoks')->with('success', 'Book is successfully deleted');
     }
 }
